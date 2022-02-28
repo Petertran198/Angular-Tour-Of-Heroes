@@ -3,14 +3,9 @@
   <li *ngFor="let hero of heroes">
     <!-- [class.selected] is implementing class binding; a way to add and remove css class conditionallyL -->
     <!--When the current row hero is the same as the selectedHero, Angular adds the selected CSS class. When the two heroes are different, removes the class.-->
-    <button
-      type="submit"
-      (click)="onSelect(hero)"
-      [class.selected]="hero === selectedHero"
-    >
+    <a routerLink="/hero-detail/{{ hero.id }}">
       <span class="badge">{{ hero.id }}</span>
       <span class="name">{{ hero.name }}</span>
-    </button>
+    </a>
   </li>
 </ul>
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>

@@ -9,8 +9,6 @@ import { MessageService } from 'src/app/services/message.service';
   styleUrls: ['./heroes.component.css'],
 })
 export class HeroesComponent implements OnInit {
-  //Means be a hero type | undefined
-  selectedHero?: Hero;
   heroes: Hero[] = [];
 
   constructor(
@@ -20,11 +18,6 @@ export class HeroesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getHeroes();
-  }
-
-  onSelect(hero: Hero) {
-    this.selectedHero = hero;
-    this.messageService.add(`HeroesComponent: Selected hero id= ${hero.id}`);
   }
 
   //Refactor to work with async response from server
