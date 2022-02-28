@@ -1,19 +1,23 @@
 <h2>My Heroes</h2>
 <ul class="heroes">
   <li *ngFor="let hero of heroes">
-    <button type="submit" (click)="onSelect(hero)">
+    <!-- [class.selected] is implementing class binding; a way to add and remove css class conditionallyL -->
+    <!--When the current row hero is the same as the selectedHero, Angular adds the selected CSS class. When the two heroes are different, removes the class.-->
+    <button
+      type="submit"
+      (click)="onSelect(hero)"
+      [class.selected]="hero === selectedHero"
+    >
       <span class="badge">{{ hero.id }}</span> {{ hero.name }}
     </button>
   </li>
 </ul>
-<h2>{{ selectedHero && selectedHero.name | uppercase }} Details</h2>
-<div><span>id: </span>{{ selectedHero && selectedHero.id }}</div>
-<div>
-  <label for="name">Hero name: </label>
-  <!-- Two way data-binding requires [(ngModel)] and import FormModule into app -->
-  <input
-    id="name"
-    [(ngModel)]="selectedHero && selectedHero.name"
-    placeholder="name"
-  />
+<div *ngIf="selectedHero">
+  <h2>{{ selectedHero.name | uppercase }} Details</h2>
+  <div><span>id: </span>{{ selectedHero.id }}</div>
+  <div>
+    <label for="name">Hero name: </label>
+    <!-- Two way data-binding requires [(ngModel)] and import FormModule into app -->
+    <input id="name" [(ngModel)]="selectedHero.name" placeholder="name" />
+  </div>
 </div>
