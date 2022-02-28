@@ -7,7 +7,7 @@ import { HEROES } from 'src/app/data/mock-heroes';
   styleUrls: ['./heroes.component.css'],
 })
 export class HeroesComponent implements OnInit {
-  //Means be hero | undefined
+  //Means be a hero type | undefined
   selectedHero?: Hero;
   heroes: Hero[] = HEROES;
 
