@@ -17,6 +17,7 @@ export class HeroService {
   }
 
   getHero(id: number): Observable<Hero> {
+    //! is typescript Non-null assertion operator
     const hero = HEROES.find((h) => h.id === id)!;
     return of(hero);
   }
