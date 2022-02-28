@@ -22,7 +22,9 @@ export class HeroesComponent implements OnInit {
     this.selectedHero = hero;
   }
 
+  //Refactor to work with async response from server
   getHeroes(): void {
-    this.heroes = this.heroService.getHeroes();
+    // subscribe is like .then in js for async method
+    this.heroService.getHeroes().subscribe((heroes) => (this.heroes = heroes));
   }
 }
