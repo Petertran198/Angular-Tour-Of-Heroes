@@ -5,6 +5,7 @@ import { HeroesComponent } from './components/heroes/heroes.component';
 const routes: Routes = [
   { path: 'heroes', component: HeroesComponent },
   { path: 'dashboard', component: DashboardComponent },
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' }, //Default route if nothing is entered
 ];
 //BEst pratice to put route file in seperate page like this and than just export RouterModule
 @NgModule({
